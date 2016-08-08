@@ -1,10 +1,25 @@
 * {
-    margin: 0 10px;
+    margin: 0;
     padding: 0;
 }
-.gif {
+body {
+    color: #fff;
+    background-color: #000;
+}
+.container {
+    margin: 0 10px;
+}
+.btn-gif {
     margin: 10px;
 }
 #gif-form {
     margin: 20px 10px;
+}
+#gifsView {
+    display: inline-block;
+    width: 100%;
+}
+.gif {
+    float: left;
+    max-width: 15%;
 }

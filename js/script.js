@@ -7,7 +7,7 @@ var gifs = ['Super Mario', 'Pac-Man', 'The Legend of Zelda', 'Kirby', 'Donkey Ko
 function displayGifInfo() {
 
     var gif = $(this).attr('data-name');
-    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + gif + "&api_key=dc6zaTOxFJmzC&limit=10";
+    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + gif + "&api_key=dc6zaTOxFJmzC&limit=30";
     $.ajax({
         url: queryURL,
         method: 'GET'
@@ -15,13 +15,13 @@ function displayGifInfo() {
         var results = response.data;
 
         for (var i = 0; i < results.length; i++) {
-            var gifDiv = $('<div>')
-            var rating = results[i].rating;
-            var p = $('<p>').text("Rating: " + rating);
+            var gifDiv = $('<div class="col-sm-2 col-md-2 col-lg-2 gif">')
+            // var rating = results[i].rating;
+            // var p = $('<p>').text("Rating: " + rating);
             var gifImage = $('<img>');
             gifImage.attr('src', results[i].images.fixed_height.url);
 
-            gifDiv.append(p)
+            // gifDiv.append(p)
             gifDiv.append(gifImage)
 
             $('#gifsView').prepend(gifDiv);
@@ -36,7 +36,7 @@ function renderButtons() {
     for (var i = 0; i < gifs.length; i++) {
         // Then dynamicaly generate buttons for each gif in the array
         var a = $('<button>');
-        a.addClass('btn btn-sm btn-default gif');
+        a.addClass('btn btn-sm btn-default btn-gif');
         a.attr('data-name', gifs[i]);
         a.text(gifs[i]);
         $('#buttonsView').append(a);
@@ -54,6 +54,6 @@ $('#addGif').on('click', function() {
 })
 
 // Display the GIF into
-$(document).on('click', '.gif', displayGifInfo);
+$(document).on('click', '.btn-gif', displayGifInfo);
 
 renderButtons();
