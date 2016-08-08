@@ -1,5 +1,5 @@
 // Initial array of gifs
-var gifs = ['Super Mario', 'Pac-Man', 'The Legend of Zelda', 'Resident Evil', 'Assassin\'s Creed', ''];
+var gifs = ['Super Mario', 'Pac-Man', 'The Legend of Zelda', 'Kirby', 'Donkey Kong', 'Resident Evil', 'Assassin\'s Creed', 'Watch Dogs'];
 
 // FUNCTIONS ========================================================
 
@@ -15,7 +15,7 @@ function displayGifInfo() {
         var results = response.data;
 
         for (var i = 0; i < results.length; i++) {
-            var gifDiv = $('<div class="item">')
+            var gifDiv = $('<div>')
             var rating = results[i].rating;
             var p = $('<p>').text("Rating: " + rating);
             var gifImage = $('<img>');
