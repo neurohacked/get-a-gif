@@ -6,7 +6,7 @@ body {
     color: #fff;
     background-color: #000;
 }
-.container {
+.container-fluid {
     margin: 0 10px;
 }
 .btn-gif {

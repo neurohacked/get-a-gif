@@ -4,7 +4,7 @@ var gifs = ['Super Mario', 'Pac-Man', 'The Legend of Zelda', 'Kirby', 'Donkey Ko
 // FUNCTIONS ========================================================
 
 // Re-renders the HTML to display the appropriate content.
-function displayGifInfo() {
+function displayGif() {
 
     var gif = $(this).attr('data-name');
     var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + gif + "&api_key=dc6zaTOxFJmzC&limit=30";
@@ -53,7 +53,7 @@ $('#addGif').on('click', function() {
     return false;
 })
 
-// Display the GIF into
-$(document).on('click', '.btn-gif', displayGifInfo);
+// Display the GIFs
+$(document).on('click', '.btn-gif', displayGif);
 
 renderButtons();
