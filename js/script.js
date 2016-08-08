@@ -1,11 +1,16 @@
+// VARIABLES ========================================================
+
+// General variables
+$gifsView = $('#gifsView');
+
 // Initial array of gifs
 var gifs = ['Super Mario', 'Pac-Man', 'The Legend of Zelda', 'Kirby', 'Donkey Kong', 'Resident Evil', 'Assassin\'s Creed', 'Watch Dogs'];
 
 // FUNCTIONS ========================================================
 
 // Re-renders the HTML to display the appropriate content.
-function displayGif() {
-
+function displayGifs() {
+    $('#gifsView').empty();
     var gif = $(this).attr('data-name');
     var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + gif + "&api_key=dc6zaTOxFJmzC&limit=30";
     $.ajax({
@@ -13,6 +18,7 @@ function displayGif() {
         method: 'GET'
     }).done(function(response) {
         var results = response.data;
+        gifsView = $('#gifsView');
 
         for (var i = 0; i < results.length; i++) {
             var gifDiv = $('<div class="col-sm-2 col-md-2 col-lg-2 gif">')
@@ -24,7 +30,7 @@ function displayGif() {
             // gifDiv.append(p)
             gifDiv.append(gifImage)
 
-            $('#gifsView').prepend(gifDiv);
+            $('#gifsView').append(gifDiv);
         }
     });
 }
@@ -54,6 +60,6 @@ $('#addGif').on('click', function() {
 })
 
 // Display the GIFs
-$(document).on('click', '.btn-gif', displayGif);
+$(document).on('click', '.btn-gif', displayGifs);
 
 renderButtons();
