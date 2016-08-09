@@ -29,6 +29,7 @@ body {
     margin: 5px 0 0 0;
 }
 .navbar-brand {
+    float: none;
     height: 65px;
 }
 .btn-gif {
