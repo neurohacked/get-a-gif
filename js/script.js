@@ -2,6 +2,7 @@
 
 // General variables -----------------------------------------------
 $gifsView = $('#gifsView');
+gif = 'super+nintendo';
 
 // Initial array of gifs
 var gifs = ['Super Mario World', 'TMNT IV Turtles in Time', 'A Link to the Past', 'Kirby Super Star', 'Super Punch Out',];
@@ -22,37 +23,9 @@ function renderButtons() {
     }
 }
 
-// Initial display of gifs -----------------------------------------
-function initialDisplay() {
-    var queryURL = "https://api.giphy.com/v1/gifs/search?q=super+nintendo&api_key=dc6zaTOxFJmzC&limit=30";
-    $.ajax({
-        url: queryURL,
-        method: 'GET'
-    }).done(function(response) {
-        var results = response.data;
-        gifsView = $('#gifsView');
-        console.log(response);
-
-        for (var i = 0; i < results.length; i++) {
-            var gifDiv = $('<div class="gif hover">');
-                var slug = results[i].slug;
-                var span = $('<span class="slug">').text("slug: " + slug);
-            var gifImage = $('<img>');
-            gifImage.attr('src', results[i].images.fixed_height.url);
-
-
-            gifDiv.append(gifImage);
-            gifDiv.append(span);
-
-            $('#gifsView').append(gifDiv);
-        }
-    });
-}
-
 // Re-renders the HTML to display the appropriate content. ---------
 function displayGifs() {
     $('#gifsView').empty();
-    // var gif = $(this).attr('data-name');
     var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + gif + "&api_key=dc6zaTOxFJmzC&limit=30";
     $.ajax({
         url: queryURL,
@@ -101,4 +74,4 @@ $('#txt-search').keypress(function(e) {
 });
 
 renderButtons();
-initialDisplay();
+displayGifs();
