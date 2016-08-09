@@ -22,6 +22,30 @@ function renderButtons() {
     }
 }
 
+function initialDisplay() {
+    var queryURL = "https://api.giphy.com/v1/gifs/search?q=super+nintendo&api_key=dc6zaTOxFJmzC&limit=30";
+    $.ajax({
+        url: queryURL,
+        method: 'GET'
+    }).done(function(response) {
+        var results = response.data;
+        gifsView = $('#gifsView');
+
+        for (var i = 0; i < results.length; i++) {
+            var gifDiv = $('<div class="col-sm-2 col-md-2 col-lg-2 gif">')
+                // var rating = results[i].rating;
+                // var p = $('<p>').text("Rating: " + rating);
+            var gifImage = $('<img>');
+            gifImage.attr('src', results[i].images.fixed_height.url);
+
+            // gifDiv.append(p)
+            gifDiv.append(gifImage)
+
+            $('#gifsView').append(gifDiv);
+        }
+    });
+}
+
 // Re-renders the HTML to display the appropriate content.
 function displayGifs() {
     $('#gifsView').empty();
@@ -74,3 +98,4 @@ $('#txt-search').keypress(function(e) {
 });
 
 renderButtons();
+initialDisplay();
