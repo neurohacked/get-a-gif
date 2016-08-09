@@ -5,7 +5,7 @@ $gifsView = $('#gifsView');
 gif = 'super+nintendo';
 
 // Initial array of gifs
-var gifs = ['Super Mario World', 'TMNT IV Turtles in Time', 'A Link to the Past', 'Kirby Super Star', 'Super Punch Out',];
+var gifs = ['Super Mario World', 'Super Mario World 2: Yoshi\'s Island', 'Chrono Trigger', 'Star Fox', 'The Legend of Zelda: A Link to the Past', 'Kirby Super Star', 'Super Punch-Out!!', 'Street Fighter II: Turbo', 'Super Mario Kart', 'Mega Man X', 'Super Metroid', 'Earthbound'];
 
 // FUNCTIONS ============================================================
 
