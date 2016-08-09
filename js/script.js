@@ -63,11 +63,9 @@ $(document).on('click', '.btn-gif', function() {
 // Animate on hover ------------------------------------------------
 $(document).on('mouseover', '.gif', function() {
     $(this).attr('src', $(this).data('animate'));
-    $(this).attr('data-state', 'animate');
 });
 $(document).on('mouseout', '.gif', function() {
     $(this).attr('src', $(this).data('still'));
-    $(this).attr('data-state', 'still');
 });
 
 // Search for new gifs ---------------------------------------------
