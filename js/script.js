@@ -1,14 +1,14 @@
-// VARIABLES ========================================================
+// VARIABLES ===========================================================
 
-// General variables
+// General variables -----------------------------------------------
 $gifsView = $('#gifsView');
 
 // Initial array of gifs
-var gifs = ['Super Mario World', 'Turtles in Time', 'The Legend of Zelda', 'Kirby', 'Donkey Kong', 'Super Punch Out', 'Sonic the Hedgehog'];
+var gifs = ['Super Mario World', 'TMNT IV Turtles in Time', 'A Link to the Past', 'Kirby Super Star', 'Super Punch Out',];
 
-// FUNCTIONS ========================================================
+// FUNCTIONS ============================================================
 
-// Generic function for displaying gif data
+// Generic function for displaying gif data ------------------------
 function renderButtons() {
     $('#buttonsView').empty();
     // Loops through the array of gifs
@@ -22,6 +22,7 @@ function renderButtons() {
     }
 }
 
+// Initial display of gifs -----------------------------------------
 function initialDisplay() {
     var queryURL = "https://api.giphy.com/v1/gifs/search?q=super+nintendo&api_key=dc6zaTOxFJmzC&limit=30";
     $.ajax({
@@ -32,7 +33,7 @@ function initialDisplay() {
         gifsView = $('#gifsView');
 
         for (var i = 0; i < results.length; i++) {
-            var gifDiv = $('<div class="col-sm-2 col-md-2 col-lg-2 gif">')
+            var gifDiv = $('<div class="gif hover">');
                 // var rating = results[i].rating;
                 // var p = $('<p>').text("Rating: " + rating);
             var gifImage = $('<img>');
@@ -46,7 +47,7 @@ function initialDisplay() {
     });
 }
 
-// Re-renders the HTML to display the appropriate content.
+// Re-renders the HTML to display the appropriate content. ---------
 function displayGifs() {
     $('#gifsView').empty();
     // var gif = $(this).attr('data-name');
@@ -59,7 +60,7 @@ function displayGifs() {
         gifsView = $('#gifsView');
 
         for (var i = 0; i < results.length; i++) {
-            var gifDiv = $('<div class="col-sm-2 col-md-2 col-lg-2 gif">')
+            var gifDiv = $('<div class="gif hoverable">')
                 // var rating = results[i].rating;
                 // var p = $('<p>').text("Rating: " + rating);
             var gifImage = $('<img>');
@@ -73,15 +74,15 @@ function displayGifs() {
     });
 }
 
-// PROCESSES ========================================================
+// PROCESSES ============================================================
 
-// Display the GIFs ----------------------------------------
+// Display the GIFs ------------------------------------------------
 $(document).on('click', '.btn-gif', function() {
     gif = $(this).attr('data-name');
     displayGifs();
 });
 
-// Search for new gifs ----------------------------------------
+// Search for new gifs ---------------------------------------------
 // Button click
 $(document).on('click', '.btn-search', function() {
     gif = $('.form-control').val();

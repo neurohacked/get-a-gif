@@ -25,12 +25,26 @@ body {
     margin-right: 0;
     width: 967px;
 }
-
+.btn-gif {
+    margin: 10px;
+}
 #main {
-    margin-top: 5px;
+    margin-top: 10px;
     text-align: left;
     width: 967px;
 }
-.btn-gif {
-    margin: 10px;
+.gif {
+    float: left;
+    overflow: hidden;
+    position: relative;
+    /*width: 24.47%;*/
+    margin: 0 5px 5px 0;
+}
+.hoverable {
+    cursor: pointer;
+}
+@media (min-width: 0px) {
+    .col-sm-3, .col-md-3, .col-lg-3, .col-md-12 {
+        padding: 0;
+    }
 }
