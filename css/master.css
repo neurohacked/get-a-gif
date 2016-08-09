@@ -33,7 +33,10 @@ body {
     height: 65px;
 }
 .btn-gif {
-    margin: 10px;
+    margin: 5px 10px;
+}
+.input-group {
+    margin-top: 5px;
 }
 #main {
     margin-top: 10px;
