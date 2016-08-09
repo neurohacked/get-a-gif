@@ -25,6 +25,7 @@ body {
     margin-right: 0;
     width: 967px;
 }
+
 #main {
     margin-top: 5px;
     text-align: left;
@@ -32,11 +33,4 @@ body {
 }
 .btn-gif {
     margin: 10px;
-}
-#gif-form {
-    margin: 20px 10px;
-}
-#gifsView {
-    display: inline-block;
-    width: 100%;
 }
