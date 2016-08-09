@@ -33,13 +33,11 @@ body {
     text-align: left;
     width: 967px;
 }
-.gif {
+.hoverable-gif {
     float: left;
     overflow: hidden;
     position: relative;
     margin: 0 5px 5px 0;
-}
-.hoverable {
     cursor: pointer;
 }
 .slug {

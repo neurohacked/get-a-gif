@@ -5,7 +5,7 @@ $gifsView = $('#gifsView');
 gif = 'super+nintendo';
 
 // Initial array of gifs
-let gifs = ['Super Mario World', 'TMNT IV Turtles in Time', 'A Link to the Past', 'Kirby Super Star', 'Super Punch Out', ];
+var gifs = ['Super Mario World', 'TMNT IV Turtles in Time', 'A Link to the Past', 'Kirby Super Star', 'Super Punch Out',];
 
 // FUNCTIONS ============================================================
 
@@ -13,9 +13,9 @@ let gifs = ['Super Mario World', 'TMNT IV Turtles in Time', 'A Link to the Past'
 function renderButtons() {
     $('#buttonsView').empty();
     // Loops through the array of gifs
-    for (let i = 0; i < gifs.length; i++) {
+    for (var i = 0; i < gifs.length; i++) {
         // Then dynamicaly generate buttons for each gif in the array
-        let a = $('<button>');
+        var a = $('<button>');
         a.addClass('btn btn-sm btn-default btn-gif');
         a.attr('data-name', gifs[i]);
         a.text(gifs[i]);
@@ -26,23 +26,22 @@ function renderButtons() {
 // Re-renders the HTML to display the appropriate content. ---------
 function displayGifs() {
     $('#gifsView').empty();
-    let queryURL = "https://api.giphy.com/v1/gifs/search?q=" + gif + "&api_key=dc6zaTOxFJmzC&limit=30";
+    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + gif + "&api_key=dc6zaTOxFJmzC&limit=30";
     $.ajax({
         url: queryURL,
         method: 'GET'
     }).done(function(response) {
-        let results = response.data;
+        var results = response.data;
         gifsView = $('#gifsView');
         console.log(response);
 
-        for (let i = 0; i < results.length; i++) {
+        for (var i = 0; i < results.length; i++) {
             let animated = results[i].images.fixed_height.url;
             let still = results[i].images.fixed_height_still.url;
-            let gifDiv = $('<div class="hoverable">')
-            let slug = results[i].slug;
-            let span = $('<span class="slug">').text(`slug: ${slug}`);
+            let gifDiv = $('<div class="hoverable-gif">')
+                let slug = results[i].slug;
+                let span = $('<span class="slug">').text(`slug: ${slug}`);
             let gifImage = $(`<img class="gif" data-still="${still}" data-animate="${animated}">`);
-
             gifImage.attr('src', still);
 
             gifDiv.append(span)
