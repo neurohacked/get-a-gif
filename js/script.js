@@ -8,33 +8,6 @@ var gifs = ['Super Mario World', 'Turtles in Time', 'The Legend of Zelda', 'Kirb
 
 // FUNCTIONS ========================================================
 
-// Re-renders the HTML to display the appropriate content.
-function displayGifs() {
-    $('#gifsView').empty();
-    var gif = $(this).attr('data-name');
-    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + gif + "&api_key=dc6zaTOxFJmzC&limit=30";
-    $.ajax({
-        url: queryURL,
-        method: 'GET'
-    }).done(function(response) {
-        var results = response.data;
-        gifsView = $('#gifsView');
-
-        for (var i = 0; i < results.length; i++) {
-            var gifDiv = $('<div class="col-sm-2 col-md-2 col-lg-2 gif">')
-            // var rating = results[i].rating;
-            // var p = $('<p>').text("Rating: " + rating);
-            var gifImage = $('<img>');
-            gifImage.attr('src', results[i].images.fixed_height.url);
-
-            // gifDiv.append(p)
-            gifDiv.append(gifImage)
-
-            $('#gifsView').append(gifDiv);
-        }
-    });
-}
-
 // Generic function for displaying gif data
 function renderButtons() {
     $('#buttonsView').empty();
@@ -49,17 +22,55 @@ function renderButtons() {
     }
 }
 
+// Re-renders the HTML to display the appropriate content.
+function displayGifs() {
+    $('#gifsView').empty();
+    // var gif = $(this).attr('data-name');
+    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + gif + "&api_key=dc6zaTOxFJmzC&limit=30";
+    $.ajax({
+        url: queryURL,
+        method: 'GET'
+    }).done(function(response) {
+        var results = response.data;
+        gifsView = $('#gifsView');
+
+        for (var i = 0; i < results.length; i++) {
+            var gifDiv = $('<div class="col-sm-2 col-md-2 col-lg-2 gif">')
+                // var rating = results[i].rating;
+                // var p = $('<p>').text("Rating: " + rating);
+            var gifImage = $('<img>');
+            gifImage.attr('src', results[i].images.fixed_height.url);
+
+            // gifDiv.append(p)
+            gifDiv.append(gifImage)
+
+            $('#gifsView').append(gifDiv);
+        }
+    });
+}
+
 // PROCESSES ========================================================
 
-// Add new button via input
-$('#addGif').on('click', function() {
-    var gif = $('#gif-input').val().trim();
-    gifs.push(gif);
-    renderButtons();
-    return false;
-})
+// Display the GIFs ----------------------------------------
+$(document).on('click', '.btn-gif', function() {
+    gif = $(this).attr('data-name');
+    displayGifs();
+});
 
-// Display the GIFs
-$(document).on('click', '.btn-gif', displayGifs);
+// Search for new gifs ----------------------------------------
+// Button click
+$(document).on('click', '.btn-search', function() {
+    gif = $('.form-control').val();
+    displayGifs();
+    return false;
+});
+// Enter in input field
+$('#txt-search').keypress(function(e) {
+    if (e.which == 13) {
+        gif = $('.form-control').val();
+        displayGifs();
+        return false;
+    }
+});
 
 renderButtons();
