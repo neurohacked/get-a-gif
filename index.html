@@ -8,22 +8,40 @@
 </head>
 
 <body>
-	<div class="container-fluid">
+	<!-- Pre-Made Buttons -->
+	<div id="buttons" class="container">
 		<div class="row">
-			<div id="buttonsView"></div>
-			<form id="gif-form" class="form-inline">
-				<div class="form-group">
-					<input type="text" class="form-control" id="gif-input" placeholder="Add a GIF here...">
-				</div>
-				<div class="form-group">
-					<button id="addGif" type="submit" class="btn btn-sm btn-default">Add GIF</button>
-				</div>
-			</form>
-			<div class="row">
+			<div class="col-md-12">
+				<div id="buttonsView"></div>
+			</div>
+		</div>
+	</div>
+	<!-- Search Bar -->
+	<div id="search" class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<form id="gif-form" class="form-inline">
+					<div class="form-group">
+						<input type="text" class="form-control" id="gif-input" placeholder="Add a GIF here...">
+					</div>
+					<div class="form-group">
+						<button id="addGif" type="submit" class="btn btn-sm btn-default">Add GIF</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	</div>
+	<!-- Main Content -->
+	<div id="main" class="container">
+		<div class="row">
+			<div class="col-md-12">
 				<div id="gifsView"></div>
 			</div>
 		</div>
-		<script type="text/javascript" src="js/script.js"></script>
+	</div>
+	</div>
+	<script type="text/javascript" src="js/script.js"></script>
 </body>
 
 </html>
