@@ -4,7 +4,7 @@
 $gifsView = $('#gifsView');
 
 // Initial array of gifs
-var gifs = ['Super Mario', 'Pac-Man', 'The Legend of Zelda', 'Kirby', 'Donkey Kong', 'Resident Evil', 'Assassin\'s Creed', 'Watch Dogs'];
+var gifs = ['Super Mario World', 'Turtles in Time', 'The Legend of Zelda', 'Kirby', 'Donkey Kong', 'Super Punch Out', 'Sonic the Hedgehog'];
 
 // FUNCTIONS ========================================================
 
