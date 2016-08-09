@@ -31,16 +31,18 @@ function initialDisplay() {
     }).done(function(response) {
         var results = response.data;
         gifsView = $('#gifsView');
+        console.log(response);
 
         for (var i = 0; i < results.length; i++) {
             var gifDiv = $('<div class="gif hover">');
-                // var rating = results[i].rating;
-                // var p = $('<p>').text("Rating: " + rating);
+                var slug = results[i].slug;
+                var span = $('<span class="slug">').text("slug: " + slug);
             var gifImage = $('<img>');
             gifImage.attr('src', results[i].images.fixed_height.url);
 
-            // gifDiv.append(p)
-            gifDiv.append(gifImage)
+
+            gifDiv.append(gifImage);
+            gifDiv.append(span);
 
             $('#gifsView').append(gifDiv);
         }
@@ -61,12 +63,12 @@ function displayGifs() {
 
         for (var i = 0; i < results.length; i++) {
             var gifDiv = $('<div class="gif hoverable">')
-                // var rating = results[i].rating;
-                // var p = $('<p>').text("Rating: " + rating);
+                var slug = results[i].slug;
+                var span = $('<span class="slug">').text("slug: " + slug);
             var gifImage = $('<img>');
             gifImage.attr('src', results[i].images.fixed_height.url);
 
-            // gifDiv.append(p)
+            gifDiv.append(span)
             gifDiv.append(gifImage)
 
             $('#gifsView').append(gifDiv);
