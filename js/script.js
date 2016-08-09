@@ -16,7 +16,7 @@ function renderButtons() {
     for (var i = 0; i < gifs.length; i++) {
         // Then dynamicaly generate buttons for each gif in the array
         var a = $('<button>');
-        a.addClass('btn btn-sm btn-default btn-gif');
+        a.addClass('btn btn-xs btn-default btn-gif');
         a.attr('data-name', gifs[i]);
         a.text(gifs[i]);
         $('#buttonsView').append(a);
