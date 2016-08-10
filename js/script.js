@@ -27,7 +27,7 @@ $(document).ready(function() {
     // Re-renders the HTML to display the appropriate content. ---------
     function displayGifs() {
         $('#gifsView').empty();
-        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + gif + "&api_key=dc6zaTOxFJmzC&limit=30";
+        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + gif + "&api_key=dc6zaTOxFJmzC&limit=40";
         $.ajax({
             url: queryURL,
             method: 'GET'
