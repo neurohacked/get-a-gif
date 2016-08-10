@@ -62,11 +62,13 @@ $(document).ready(function() {
     });
 
     // Animate on hover ------------------------------------------------
-    $(document).on('mouseover', '.gif', function() {
-        $(this).attr('src', $(this).data('animate'));
+    $(document).on('mouseover', '.hoverable-gif', function() {
+        $(this).find('img').attr('src', $(this).find('img').data('animate'));
+        $(this).find('span').delay(2000).fadeOut();
     });
-    $(document).on('mouseout', '.gif', function() {
-        $(this).attr('src', $(this).data('still'));
+    $(document).on('mouseout', '.hoverable-gif', function() {
+        $(this).find('img').attr('src', $(this).find('img').data('still'));
+        $(this).find('span').fadeIn();
     });
 
     // Search for new gifs ---------------------------------------------
