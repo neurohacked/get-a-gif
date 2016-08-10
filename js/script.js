@@ -6,7 +6,7 @@ $(document).ready(function() {
     gif = 'super+nintendo';
 
     // Initial array of gifs
-    var gifs = ['Super Mario World', 'Yoshi\'s Island', 'Chrono Trigger', 'Star Fox', 'The Legend of Zelda: A Link to the Past', 'Kirby Super Star', 'Super Punch-Out!!', 'Street Fighter II Turbo', 'Super Mario Kart', 'Mega Man X', 'TMNT: Turtles in Time', 'Super Metroid', 'Secret of Mana', 'Earthbound'];
+    let gifs = ['Super Mario World', 'Yoshi\'s Island', 'Chrono Trigger', 'Star Fox', 'The Legend of Zelda: A Link to the Past', 'Kirby Super Star', 'Super Punch-Out!!', 'Street Fighter II Turbo', 'Super Mario Kart', 'Mega Man X', 'TMNT: Turtles in Time', 'Super Metroid', 'Secret of Mana', 'Earthbound'];
 
     // FUNCTIONS ============================================================
 
@@ -14,9 +14,9 @@ $(document).ready(function() {
     function renderButtons() {
         $('#buttonsView').empty();
         // Loops through the array of gifs
-        for (var i = 0; i < gifs.length; i++) {
+        for (let i = 0; i < gifs.length; i++) {
             // Then dynamicaly generate buttons for each gif in the array
-            var a = $('<button>');
+            let a = $('<button>');
             a.addClass('btn btn-xs btn-default btn-gif');
             a.attr('data-name', gifs[i]);
             a.text(gifs[i]);
@@ -27,16 +27,15 @@ $(document).ready(function() {
     // Re-renders the HTML to display the appropriate content. ---------
     function displayGifs() {
         $('#gifsView').empty();
-        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + gif + "&api_key=dc6zaTOxFJmzC&limit=40";
+        let queryURL = "https://api.giphy.com/v1/gifs/search?q=" + gif + "&api_key=dc6zaTOxFJmzC&limit=40";
         $.ajax({
             url: queryURL,
             method: 'GET'
         }).done(function(response) {
-            var results = response.data;
+            let results = response.data;
             gifsView = $('#gifsView');
-            console.log(response);
 
-            for (var i = 0; i < results.length; i++) {
+            for (let i = 0; i < results.length; i++) {
                 let animated = results[i].images.fixed_height.url;
                 let still = results[i].images.fixed_height_still.url;
                 let gifDiv = $('<div class="hoverable-gif">')
