@@ -31,6 +31,7 @@ body {
 .navbar-brand {
     float: none;
     height: 65px;
+    cursor: pointer;
 }
 .btn-gif {
     margin: 5px 10px;

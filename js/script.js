@@ -71,7 +71,7 @@ $(document).ready(function() {
         $(this).find('span').fadeIn();
     });
 
-    // Search for new gifs ---------------------------------------------
+    // Search for new gifs ----------------------------------------------
 
     // Button click
     $(document).on('click', '.btn-search', function() {
@@ -91,6 +91,12 @@ $(document).ready(function() {
             displayGifs();
             return false;
         }
+    });
+
+    // Reload default content when clicking on navbar-brand -------------
+    $(document).on('click', '.navbar-brand', function() {
+        gif = 'super+nintendo';
+        displayGifs();
     });
 
     renderButtons();
