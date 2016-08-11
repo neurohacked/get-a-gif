@@ -94,6 +94,7 @@ $(document).ready(function() {
 
     // Reload default content when clicking on navbar-brand -------------
     $(document).on('click', '.navbar-brand', function() {
+        $('.form-control').val('');
         gif = 'super+nintendo';
         displayGifs();
     });
