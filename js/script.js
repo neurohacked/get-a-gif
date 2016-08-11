@@ -63,11 +63,11 @@ $(document).ready(function() {
     // Animate on hover ------------------------------------------------
     $(document).on('mouseover', '.hoverable-gif', function() {
         $(this).find('img').attr('src', $(this).find('img').data('animate'));
-        $(this).find('span').delay(2000).fadeOut();
+        $(this).find('span').delay(4000).fadeOut('fast');
     });
     $(document).on('mouseout', '.hoverable-gif', function() {
         $(this).find('img').attr('src', $(this).find('img').data('still'));
-        $(this).find('span').fadeIn();
+        $(this).find('span').stop( true, true ).fadeIn();
     });
 
     // Search for new gifs ----------------------------------------------
