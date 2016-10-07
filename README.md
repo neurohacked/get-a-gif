@@ -1,2 +1,13 @@
 # Super Gif
-Super Gif is an animated [GIF](http://en.wikipedia.org/wiki/Graphics_Interchange_Format) search engine.
+Super Gif is lightweight GIPHY clone with a SNES theme.
+
+## API
+* [GIPH](https://api.giphy.com/)
+
+## Future Development
+
+* Add a quick copy and share options
+* Add user login
+  * Save favorites
+  * Add new gifs to GIPHY from Super Gif
+  
