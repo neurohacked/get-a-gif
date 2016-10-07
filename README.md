@@ -2,7 +2,7 @@
 Super Gif is lightweight GIPHY clone with a SNES theme.
 
 ## API
-* [GIPH](https://api.giphy.com/)
+* [GIPHY](https://api.giphy.com/)
 
 ## Future Development
 
